@@ -1,0 +1,34 @@
+ALGORITHME detecterCreneauDisponible-v1
+  VARIABLES
+    CHAINE: debutJournee, finJournee, horaireDebut1, horaireFin1, horaireDebut2, horaireFin2
+
+DEBUT
+  debutJournee ← "07:59"
+  finJournee ← "18:00"
+  horaireDebut1 ← lireHoraireDebutDuPremierHoraire()
+  horaireFin1 ← lireHoraireFinDuPremierHoraire()
+
+  // Est-ce qu'il y a un trou d'au moins 60 minutes entre 
+  // le début de journée et le début du premier horaire ?
+  SI (dureeTrou(debutJournee, horaireDebut1) >= 60) ALORS
+    afficherReponse(debutJournee)
+    finDuProgramme
+  FIN SI
+
+  horaireDebut2 ← lireHoraireDebutDuDeuxiemeHoraire()
+  horaireFin2 ← lireHoraireFinDuDeuxiemeHoraire()
+
+  // Est-ce qu'il y a un trou d'au moins 60 minutes entre 
+  // la fin du premier horaire et le début du 2ème horaire ?
+  SI (dureeTrou(horaireFin1, horaireDebut2) >= 60) ALORS
+    afficherReponse(horaireFin1)
+    finDuProgramme
+  FIN SI
+
+  // Est-ce qu'il y a un trou d'au moins 60 minutes entre
+  // la fin du 2ème horaire et la fin de journée ?
+  SI (dureeTrou(horaireFin2, finJournee) >= 60) ALORS
+    afficherReponse(horaireFin2)
+    finDuProgramme
+  FIN SI
+FIN

@@ -1,0 +1,29 @@
+FONCTION fonctionDeTriChronologique(creneau1, creneau2)
+  PARAMETRES locaux
+    CHAINE: creneau1, creneau2
+
+DEBUT
+  // creneau1 vaut par exemple "10:45-14:47"
+  // creneau2 vaut par exemple "08:30-09:52"
+
+  // On récupère juste l'horaire de début des créneaux
+  horaireDebut1 ← lireHoraireDebutDeCreneau(creneau1)
+  horaireDebut2 ← lireHoraireDebutDeCreneau(creneau2)
+
+  heuresDebut1 ← extraireHeures(horaireDebut1)
+  heuresDebut2 ← extraireHeures(horaireDebut2)
+
+  SI (heuresDebut1 = heuresDebut2) ALORS
+    // On compare les minutes
+    minutesDebut1 ← extraireMinutes(horaireDebut1)
+    minutesDebut2 ← extraireMinutes(horaireDebut2)
+
+    // Utiliser une soustraction permet de renvoyer une 
+    // valeur négative, positive ou nulle comme demandé
+    RETOURNER (minutesDebut1 - minutesDebut2)
+  FIN SI
+
+  // Utiliser une soustraction permet de renvoyer une
+  // valeur négative, positive ou nulle comme demandé
+  RETOURNER (heuresDebut1 - heuresDebut2)
+FIN

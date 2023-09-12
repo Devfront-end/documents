@@ -1,0 +1,25 @@
+FONCTION dureeTrou(horaireDebut, horaireFin)
+  PARAMETRES locaux
+    CHAINE : horaireDebut, horaireFin
+
+  VARIABLES
+    ENTIER : heuresDebut, minutesDebut, heuresFin, minutesFin, duree
+
+DEBUT
+  // Ex.: horaireDebut vaut "08:15"
+  heuresDebut ← extraireHeures(horaireDebut)
+  minutesDebut ← extraireMinutes(horaireDebut)
+  
+  // Ex.: horaireFin vaut "08:30"
+  heuresFin ← extraireHeures(horaireFin)
+  minutesFin ← extraireMinutes(horaireFin)
+  
+  // On calcule la durée du créneau en minutes
+  duree ← (heuresFin - heuresDebut) * 60 + (minutesFin - minutesDebut)
+
+  // On calcule la durée du trou à l'intérieur de ce créneau
+  duree ← duree - 2
+
+  // On ajuste la durée pour correspondre aux contraintes de l'énoncé
+  RETOURNER duree + 1
+FIN

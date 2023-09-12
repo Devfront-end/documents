@@ -1,0 +1,46 @@
+
+
+
+
+
+ALGORITHME afficherReponse(horaire)
+  PARAMETRES locaux
+    CHAINE: horaire
+
+  VARIABLES
+    ENTIER: heures, minutes, horaireDebutMin, horaireFinMin
+    CHAINE: horaireDebut, horaireFin
+
+DEBUT
+  // Ex.: horaire vaut "09:52"
+  heures ← extraireHeures(horaire)
+  minutes ← extraireMinutes(horaire)
+
+  // Astuce : on transforme tout en minutes pour faire 
+  // les calculs sur les horaires
+  horaireDebutMin ← heures * 60 + minutes
+
+  // On veut obtenir "09:53" car "09:52" fait partie du 
+  // créneau impossible
+  horaireDebutMin ← horaireDebutMin + 1
+
+  // On calcule l'horaire de fin, on veut "10:52"
+  horaireFinMin ← horaireDebutMin + 59
+
+  // Il faudra reconvertir tout ça au format HH:MM
+  horaireDebut ← convertirMinEnHoraire(horaireDebutMin)
+  horaireFin ← convertirMinEnHoraire(horaireFinMin)
+
+  // On affiche le résultat avec le bon format "09:53-
+  // 10:52" grâce à une concaténation
+  AFFICHER(horaireDebut + '-' + horaireFin)
+FIN
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: #fcc04900;
+  border-radius: 50%;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed white;
+}
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background-color: #c0c0c000;
+  border-radius: 50%;
+  animation-timing-function: linear;
+}
+
+@keyframes rotatePlanet {
+  from {
+    transform: rotate(1deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbit1 {
+  width: 200px;
+  height: 200px;
+}
+
+.orbit2 {
+  width: 250px;
+  height: 250px;
+}
+
+.orbit3 {
+  width: 300px;
+  height: 300px;
+}
+
+.planet1 {
+  animation: rotatePlanet 5s linear infinite;
+}
+
+.planet2 {
+  animation: rotatePlanet 38s linear infinite;
+}
+
+.planet3 {
+  animation: rotatePlanet 20s linear infinite;
+}
+
+/* Add more orbit and planet styles as needed */
+
+

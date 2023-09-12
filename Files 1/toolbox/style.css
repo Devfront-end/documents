@@ -1,0 +1,115 @@
+.toolbox-container {
+  position: relative;
+}
+
+.toolbox-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.toolbox-button:hover {
+  background-color: #555;
+}
+
+.toolbox-content {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none;
+  animation: slide-up 0.3s ease-in-out;
+}
+
+#toolbox {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: none;
+}
+
+#toolbox {
+  /* Existing styles... */
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(100%);
+}
+
+#toolbox.active {
+  transform: translateY(0);
+}
+
+.toolbox-container {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  background-color: red;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
+.toolbox-container.open {
+  height: 150px;
+}
+
+.toolbox-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+}
+
+.toolbox-content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: white;
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@keyframes slide-up {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 40px;
+    opacity: 1;
+  }
+}
+
+.show {
+  display: block;
+  animation: slide-down 0.3s ease-in-out;
+}
+
+@keyframes slide-down {
+  from {
+    bottom: 40px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

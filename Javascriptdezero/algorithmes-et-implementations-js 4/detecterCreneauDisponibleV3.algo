@@ -1,0 +1,52 @@
+ALGORITHME detecterCreneauDisponible-v3
+
+  // La variable input contient déjà les données d'entrée
+  // C'est un tableau dont chaque case contient une ligne du fichier d'entrée
+  VARIABLES globales
+    CHAINE: input[] // tableau de chaînes de caractères
+  
+  VARIABLES
+    CHAINE: debutJournee, finJournee, debut, fin, creneaux[]
+    ENTIER: nombreCreneaux, nombreDeTestsAFaire, position
+
+DEBUT
+  debutJournee ← "07:59"
+  finJournee ← "18:00"
+
+  // Sur la première ligne du fichier d'entrée on lit le nombre de créneaux
+  nombreCreneaux ← input[0]
+  
+  // Il faut N+1 tests
+  nombreDeTestsAFaire ← nombreCreneaux + 1
+
+  // On récupère juste les créneaux pour les trier
+  // Soit les cases 1 à nombreCreneaux du tableau input
+  creneaux ← input[1..nombreCreneaux]
+
+  // On trie par ordre chronologique
+  creneaux ← trierParOrdreChronologique(creneaux)
+
+  // On connaît le nombre de tests à effectuer
+  POUR position ALLANT DE 0 À nombreDeTestsAFaire - 1 PAR PAS DE 1 FAIRE
+
+    // Pour le 1er test on utilise debutJournee
+    SI (position = 0) ALORS
+      debut ← debutJournee
+    SINON
+      // Lors du test 2 il faut prendre la fin du créneau 1
+      debut ← lireHoraireFinDeCreneau(creneaux[position - 1])
+    FIN SI
+
+    // Pour le dernier test, il faut utiliser finJournee !    
+    SI (position = nombreDeTestsAFaire - 1) ALORS
+      fin ← finJournee
+    SINON
+      fin ← lireHoraireDebutDeCreneau(creneaux[position])
+    FIN SI
+
+    SI (dureeTrou(debut, fin) >= 60) ALORS
+      afficherReponse(debut)
+      finDuProgramme
+    FIN SI
+  FIN POUR
+FIN

@@ -1,0 +1,28 @@
+ALGORITHME lireCreneauxSemaine
+  VARIABLES globales
+    CHAINE: input[]
+
+  VARIABLES locales
+    CHAINE: creneau, creneauxSemaine[][]
+    ENTIER: nombreCreneaux, position, numeroDuJour, indiceDuJour
+
+DEBUT
+  // Sur la première ligne du fichier d'entrée on lit le nombre de créneaux
+  nombreCreneaux ← input[0]
+
+  // On lit les créneaux à partir de la 2ème ligne d'input (indice 1)
+  POUR position ALLANT DE 1 À nombreCreneaux PAR PAS DE 1 FAIRE
+    // On extrait le numéro du jour qu'on utilisera comme indice
+    numeroDuJour ← extraireNumeroJour(input[position])
+
+    // On extrait le créneau
+    creneau ← extraireCreneau(input[position])
+
+    // On n'oublie pas de soustraire 1 au numéro du jour pour obtenir
+    // le bon indice
+    indiceDuJour ← numeroDuJour - 1
+
+    // On ajoute ce créneau dans la bonne case correspondant à son jour
+    ajouterDansTableau(creneauxSemaine[indiceDuJour], creneau)
+  FIN POUR
+FIN

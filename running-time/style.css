@@ -1,0 +1,29 @@
+/* Resetting default margin and padding for the body */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Center vertically on the page */
+  background-color: #f0f0f0; /* Background color for the body */
+}
+
+.planet {
+  width: 100px; /* Adjust the width and height according to your planet image */
+  height: 100px;
+  background-image: url("campagne-rechauffement-climatique-planete-terre-surchauffe-medias-mixtes_53876-104835.avif"); /* Replace 'planet-image.jpg' with your image file path */
+  background-size: cover; /* Scale the image to cover the entire div */
+  border-radius: 50%;
+  animation: orbit 8s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
